@@ -1,0 +1,258 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace KTYD.Controller
+{
+    /// <summary>
+    /// Player object
+    /// 
+    /// This class will focus only on entities that belong to players.
+    /// 
+    /// interface: Map Observer
+    /// </summary>
+    public class Players:KTYD.ObserverModel.MapObserver
+    {
+
+        List<Entity> player_list;                   // Player List
+        List<KTYD.Model.BulletType[]> weapons_list;   // Player's weapon 
+        private List<int> currentWeapon;            // Current weapon for player
+        private List<int> currentLifeHas;           // Current life the player has
+        private int totalDead = 0;
+        private bool[] aliveList;                    // Keep track of who died
+
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public Players()
+        {
+            player_list = new List<Entity>();
+            weapons_list = new List<KTYD.Model.BulletType[]>();
+            currentWeapon = new List<int>();
+            currentLifeHas = new List<int>();
+            aliveList = new bool[player_list.Count];
+
+            for (int i = 0; i < aliveList.Length; ++i)
+            {
+                aliveList[i] = false;
+            }
+        }
+
+
+        /// <summary>
+        /// Load a new player in
+        /// </summary>
+        /// <param name="e"></param>
+        public void loadPlayerIn(Entity e)
+        {
+            player_list.Add(e);
+            weapons_list.Add(new KTYD.Model.BulletType[GameConfig.MAX_WEAPON_SLOT]);
+            weapons_list[weapons_list.Count - 1][GameConfig.WEAPON_SLOT_ONE] = KTYD.Model.BulletType.PISTOL;
+            weapons_list[weapons_list.Count - 1][GameConfig.WEAPON_SLOT_TWO] = KTYD.Model.BulletType.PISTOL;
+            currentWeapon.Add(GameConfig.WEAPON_SLOT_ONE);
+            currentLifeHas.Add(GameConfig.DEFAULT_LIFE_GIVEN);
+        }
+
+        /// <summary>
+        /// Get #1 player
+        /// </summary>
+        /// <returns></returns>
+        public Entity getPlayerOne()
+        {
+            return getPlayerAt(0);
+        }
+
+        /// <summary>
+        /// Get #2 Player
+        /// </summary>
+        /// <returns></returns>
+        public Entity getPlayerTwo()
+        {
+            return getPlayerAt(1);
+        }
+
+        /// <summary>
+        /// Get generic # player
+        /// </summary>
+        /// <param name="player_index">Index of player</param>
+        /// <returns>Entity object that represents that specific player, Null if nothing</returns>
+        public Entity getPlayerAt(int player_index)
+        {
+            if (player_index < player_list.Count)
+            {
+                return player_list[player_index];
+            } else  return null;
+        }
+
+        /// <summary>
+        /// Get a current weapon using by the specific player
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        /// <returns>Type of weapon</returns>
+        public KTYD.Model.BulletType getPlayerWeaponTypeAt(int player_index)
+        {
+            return weapons_list[player_index][currentWeapon[player_index]];
+        }
+
+        /// <summary>
+        /// Get a current weapon using by the first player
+        /// </summary>
+        /// <returns>Type of weapon</returns>
+        public KTYD.Model.BulletType getPlayerOneWeaponType()
+        {
+            return getPlayerWeaponTypeAt(0);
+        }
+
+        /// <summary>
+        /// Change current weapon of the specific player
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        /// <param name="new_weapon">new weapon</param>
+        public void changeWeaponAtPlayer(int player_index, KTYD.Model.BulletType new_weapon)
+        {
+            weapons_list[player_index][currentWeapon[player_index]] = new_weapon;
+        }
+
+        /// <summary>
+        /// Switch between weapon for specific player
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        public void switchWeaponAtPlayer(int player_index)
+        {
+            if (currentWeapon[player_index] < 1)
+            {
+                ++currentWeapon[player_index];
+            }
+            else
+            {
+                currentWeapon[player_index] = 0;
+            }
+            switchWeaponGraphic(player_index);
+            
+        }
+
+        /// <summary>
+        /// Reset player at the particular index to initial values
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        public void resetPlayerAt(int player_index)
+        {
+            --currentLifeHas[player_index];
+          
+            player_list[player_index].resurrect();
+        }
+
+        /// <summary>
+        /// Get total lives the specific player has
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        /// <returns>the number of lives</returns>
+        public int getPlayerLivesAt(int player_index)
+        {
+            return currentLifeHas[player_index];
+        }
+
+        /// <summary>
+        /// Check if the player at specific index is out of life
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        /// <returns>True if player runs out of lives</returns>
+        public bool isPlayerOutOfLifeAt(int player_index)
+        {
+            if (currentLifeHas[player_index] < 1)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+
+        /// <summary>
+        /// Switch an image to reflect changes of switching weapon
+        /// </summary>
+        /// <param name="player_index">Player index</param>
+        private void switchWeaponGraphic(int player_index)
+        {
+            switch (weapons_list[player_index][currentWeapon[player_index]])
+            {
+                case KTYD.Model.BulletType.M16:
+                    getPlayerAt(player_index).setStateEntity(GameConfig.IMG_OFFSET_M16);
+                    break;
+                case KTYD.Model.BulletType.PISTOL:
+                    getPlayerAt(player_index).setStateEntity(GameConfig.IMG_OFFSET_PISTOL);
+                    break;
+                case KTYD.Model.BulletType.FLAMETHROWER:
+                    getPlayerAt(player_index).setStateEntity(GameConfig.IMG_OFFSET_FLAMETHROWER);
+                    break;
+                case KTYD.Model.BulletType.SHOTGUN:
+                    getPlayerAt(player_index).setStateEntity(GameConfig.IMG_OFFSET_SHOTGUN);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Check if all players alives
+        /// </summary>
+        /// <returns></returns>
+        public bool areSomePlayersAlive()
+        {
+            for (int i = 0; i < this.player_list.Count; ++i)
+            {
+                if (!player_list[i].isDead())
+                {
+                    return true;
+                }
+            }
+            return false;
+            
+        }
+
+        /// <summary>
+        /// Update
+        /// </summary>
+        public void update()
+        {
+            // Update current weapon
+            for (int player_index = 0; player_index < player_list.Count; ++player_index)
+            {
+                    switch (player_list[player_index].HoldItem)
+                    {
+                        case KTYD.Model.ItemType.M16_WEAPON:
+                            // if never have this weapon
+                            if (weapons_list[player_index][GameConfig.WEAPON_SLOT_ONE] != KTYD.Model.BulletType.M16 && weapons_list[player_index][GameConfig.WEAPON_SLOT_TWO] != KTYD.Model.BulletType.M16)
+                            {
+                                changeWeaponAtPlayer(player_index, KTYD.Model.BulletType.M16);
+                            }
+                            break;
+                        case KTYD.Model.ItemType.FLAME_WEAPON:
+                            if (weapons_list[player_index][GameConfig.WEAPON_SLOT_ONE] != KTYD.Model.BulletType.FLAMETHROWER && weapons_list[player_index][GameConfig.WEAPON_SLOT_TWO] != KTYD.Model.BulletType.M16)
+                            {
+                                changeWeaponAtPlayer(player_index, KTYD.Model.BulletType.FLAMETHROWER);
+                            }
+                            break;
+
+                        case KTYD.Model.ItemType.SHOTGUN_WEAPON:
+                            if (weapons_list[player_index][GameConfig.WEAPON_SLOT_ONE] != KTYD.Model.BulletType.SHOTGUN && weapons_list[player_index][GameConfig.WEAPON_SLOT_TWO] != KTYD.Model.BulletType.SHOTGUN)
+                            {
+                                changeWeaponAtPlayer(player_index, KTYD.Model.BulletType.SHOTGUN);
+                            }
+                            break;
+                    }
+
+                    // Check if both weapon slot of each player is having the same weapon
+                    if (weapons_list[player_index][GameConfig.WEAPON_SLOT_ONE] != weapons_list[player_index][GameConfig.WEAPON_SLOT_TWO])
+                    {
+                        switchWeaponGraphic(player_index);
+                    }
+                    else
+                    {
+                        // if it is, make one a pistol
+                        weapons_list[player_index][GameConfig.WEAPON_SLOT_TWO] = Model.BulletType.PISTOL;
+                    }
+
+
+            }//for
+        }
+    }
+}
