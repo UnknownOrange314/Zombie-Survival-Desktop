@@ -118,6 +118,8 @@
     <Compile Include="AI\SearchState.cs" />
     <Compile Include="BarGraph.cs" />
     <Compile Include="ControlConfig.cs" />
+    <Compile Include="Controller\Model\Character.cs" />
+    <Compile Include="Controller\Model\Obstacle.cs" />
     <Compile Include="GameComponent1.cs" />
     <Compile Include="GameState\MenuState.cs" />
     <Compile Include="GameState\Playmode.cs" />

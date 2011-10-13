@@ -73,10 +73,12 @@
     <Compile Include="BarGraph.cs" />
     <Compile Include="ControlConfig.cs" />
     <Compile Include="Controller\Model\Bullet.cs" />
+    <Compile Include="Controller\Model\Character.cs" />
     <Compile Include="Controller\Model\Entity.cs" />
     <Compile Include="Controller\Model\Item.cs" />
     <Compile Include="Controller\Model\Map.cs" />
     <Compile Include="Controller\Model\Observable.cs" />
+    <Compile Include="Controller\Model\Obstacle.cs" />
     <Compile Include="Controller\Players.cs" />
     <Compile Include="DiffScaler.cs" />
     <Compile Include="GameComponent1.cs" />

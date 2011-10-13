@@ -112,8 +112,8 @@ namespace KTYD
 
 
             // TODO: Add your initialization logic here
-            players[0] = new Entity(500, 100, 0, EntityType.PLAYER, GameConfig.IMG_BASE_BLUE, Weapon.createPistol());
-            players[1] = new Entity(600,200,0, EntityType.PLAYER, GameConfig.IMG_BASE_RED, Weapon.createPistol());
+            players[0] = new KTYD.Model.Character(500, 100, 0, EntityType.PLAYER, GameConfig.IMG_BASE_BLUE, Weapon.createPistol());
+            players[1] = new KTYD.Model.Character(600,200,0, EntityType.PLAYER, GameConfig.IMG_BASE_RED, Weapon.createPistol());
             //players[2] = new Entity(700,200,0, EntityType.PLAYER, GameConfig.IMG_BASE_ORANGE, KTYD.Model.BulletType.PISTOL);
             //players[3] = new Entity(800,400,0, EntityType.PLAYER, GameConfig.IMG_BASE_GREEN, KTYD.Model.BulletType.PISTOL);
 

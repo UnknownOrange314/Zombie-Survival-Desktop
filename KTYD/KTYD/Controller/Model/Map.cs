@@ -30,6 +30,8 @@ namespace KTYD.Model
 
         private List<Entity> trashBullets;
 
+        public List<KTYD.Controller.Model.Obstacle> obstacles; //List of impassable obstacles in the game, this should probably be refactored
+
         private float gameTime;
 
         private Microsoft.Xna.Framework.Audio.SoundEffect[] SoundEffect;
@@ -47,6 +49,14 @@ namespace KTYD.Model
         /// </summary>
         public Map(Controller.Players p)
         {
+
+            //temporary test code
+            
+            KTYD.Controller.Model.Obstacle o = new KTYD.Controller.Model.Obstacle(600, 600, 1000,1000);
+            obstacles = new List<KTYD.Controller.Model.Obstacle>();
+            //obstacles.Add(o);
+
+            //end test code
             containers = new gArray(GameConfig.LEVEL_WIDTH, GameConfig.LEVEL_HEIGHT);
 
             trashBullets = new List<Entity>();
@@ -60,6 +70,11 @@ namespace KTYD.Model
             height = GameConfig.LEVEL_WIDTH;
         }
 
+         public List<KTYD.Controller.Model.Obstacle> getObstacles()
+        {
+            return obstacles;
+
+        }
 
         public void loadSoundEffect(Microsoft.Xna.Framework.Audio.SoundEffect[] array)
         {
@@ -116,7 +131,7 @@ namespace KTYD.Model
         /// <summary>
         /// Return list of players in the map
         /// </summary>
-        public List<Entity> getPlayersList()
+        public List<KTYD.Model.Character> getPlayersList()
         {
 
             return playersList.getPlayers();
@@ -144,7 +159,7 @@ namespace KTYD.Model
         /// <summary>
         /// Return the list of all players
         /// </summary>
-        public List<Entity> PlayerEntities
+        public List<KTYD.Model.Character> PlayerEntities
         {
             get
             {
@@ -193,9 +208,9 @@ namespace KTYD.Model
             if (e != null)
             {
                 containers.Add(e);
-                if (e.Type == EntityType.PLAYER)
+                if (e.Type==EntityType.PLAYER)
                 {
-                    playersList.Add(e); //The list of players is being stored in two places.
+                    playersList.Add((KTYD.Model.Character)e); //The list of players is being stored in two places.
                 }
                 else if (e.Type == EntityType.ENEMY)
                 {

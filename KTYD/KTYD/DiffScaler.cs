@@ -23,7 +23,7 @@ namespace KTYD
         public DiffScaler()
         {
             maxEnemies = GameConfig.MAX_ENEMIES;
-            myScore = 500;
+            myScore = 4;
             r = new Random();
 
         }
@@ -32,7 +32,7 @@ namespace KTYD
         /// </summary>
         public void addPoint()
         {
-            myScore+=40;
+            myScore+=1;
 
 
         }
@@ -54,7 +54,7 @@ namespace KTYD
         /// </summary>
         /// <param name="player">List of players on map</param>
 
-        public Vector2 determineSpawnLocation(List<Entity> player)
+        public Vector2 determineSpawnLocation(List<KTYD.Model.Character> player)
         {
             while (true)
             {
@@ -129,7 +129,7 @@ namespace KTYD
         {
            
             int eCount = gMap.EnemiesEntities.Count;
-            List<Entity> player = gMap.PlayerEntities;
+            List<KTYD.Model.Character> player = gMap.PlayerEntities;
 
             int difficultyScore = eCount * GameConfig.DIFF_SCALE_FACTOR;
 

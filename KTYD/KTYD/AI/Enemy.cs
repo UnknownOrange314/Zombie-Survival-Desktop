@@ -12,7 +12,7 @@ namespace KTYD.AI
     /// 
     /// Base: Entity
     /// </summary>
-    public class Enemy : KTYD.Entity
+    public class Enemy : KTYD.Model.Character
     {
         private int countSteps;         // current step used
         private int maxSteps;           // max steps
@@ -119,7 +119,8 @@ namespace KTYD.AI
             {
                 if (!isDead())
                 {
-                    setState(prevState);
+                    myState = new GuardState("GUARD", this, myMap);
+                    //setState(prevState);
                 }
             }
             /*
@@ -231,7 +232,7 @@ namespace KTYD.AI
         /// </summary>
         /// <param name="e">Entity</param>
         /// <returns>Return closets player or Null if nothing</returns>
-        public Entity findClosestPlayer(List<Entity> e)
+        public Entity findClosestPlayer(List<KTYD.Model.Character> e)
         {
             Entity temp = null;
             Double min_dist = findDistance(this.Location.X, this.Location.Y, e[0].Location.X, e[0].Location.Y);
@@ -283,7 +284,7 @@ namespace KTYD.AI
 
             gArray containers = gameMap.getContainers();
             List<Entity> trashContainers = gameMap.getTrashContainers();
-            List<Entity> playersList = gameMap.getPlayersList();
+            List<KTYD.Model.Character> playersList = gameMap.getPlayersList();
             List<Entity> bulletList = gameMap.getBulletList();
 
             if (!this.isDead())
@@ -356,7 +357,7 @@ namespace KTYD.AI
           
 
         }
-        public void determineAction(List<Entity> trashContainers, List<Entity> playersList,List<Entity> bulletList,KTYD.Model.Map gameMap)
+        public void determineAction(List<Entity> trashContainers, List<KTYD.Model.Character> playersList,List<Entity> bulletList,KTYD.Model.Map gameMap)
         {
 
             Entity e = findClosestPlayer(playersList);

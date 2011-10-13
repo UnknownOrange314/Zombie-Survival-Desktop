@@ -15,7 +15,7 @@ namespace KTYD.Controller
     public class Players:KTYD.ObserverModel.MapObserver
     {
 
-        List<Entity> player_list;                   // Player List
+        List<KTYD.Model.Character> player_list;                   // Player List
         List<Weapon[]> weapons_list;   // Player's weapon 
         private List<int> currentWeapon;            // Current weapon for player
         private List<int> currentLifeHas;           // Current life the player has
@@ -33,7 +33,7 @@ namespace KTYD.Controller
         Dictionary<int, Microsoft.Xna.Framework.Input.Keys> leftMapping;
         public Players()
         {
-            player_list = new List<Entity>();
+            player_list = new List<KTYD.Model.Character>();
             weapons_list = new List<Weapon[]>();
             currentWeapon = new List<int>();
             currentLifeHas = new List<int>();
@@ -87,11 +87,11 @@ namespace KTYD.Controller
         {
             return backwardMapping;
         }
-        public List<Entity> getPlayers()
+        public List<KTYD.Model.Character> getPlayers()
         {
             return player_list;
         }
-        public void Add(Entity e)
+        public void Add(KTYD.Model.Character e)
         {
             loadPlayerIn(e);
 
@@ -100,7 +100,7 @@ namespace KTYD.Controller
         /// Load a new player in
         /// </summary>
         /// <param name="e"></param>
-        public void loadPlayerIn(Entity e)
+        public void loadPlayerIn(KTYD.Model.Character e)
         {
             player_list.Add(e);
             weapons_list.Add(new Weapon[GameConfig.MAX_WEAPON_SLOT]);

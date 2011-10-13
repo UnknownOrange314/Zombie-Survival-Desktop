@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\commandos.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\commandos.xnb</Output>
       <Time>2011-03-30T18:15:32-05:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\KTYD_units.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\KTYD_units.xnb</Output>
       <Time>2011-03-30T18:15:34-05:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\KTYD_Map.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\KTYD_Map.xnb</Output>
       <Time>2011-03-30T18:15:40-05:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\ktyd_01.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\ktyd_01.xnb</Output>
       <Time>2011-03-30T18:15:34-05:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\ktyd_02.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\ktyd_02.xnb</Output>
       <Time>2011-03-30T18:15:38-05:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\fontdebug.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\fontdebug.xnb</Output>
       <Time>2011-03-30T18:15:32-05:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\FlameT.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\FlameT.xnb</Output>
       <Time>2011-03-30T18:15:36-05:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\MacGun.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\MacGun.xnb</Output>
       <Time>2011-03-30T18:15:36-05:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\Health.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\Health.xnb</Output>
       <Time>2011-03-30T18:15:34-05:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\Shotgun.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\Shotgun.xnb</Output>
       <Time>2011-03-30T18:15:36-05:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\MedicalEmer.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\MedicalEmer.xnb</Output>
       <Time>2011-03-30T18:15:38-05:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\shotgun_sound.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\shotgun_sound.xnb</Output>
       <Time>2011-03-30T18:15:38-05:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\singlegunshot.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\singlegunshot.xnb</Output>
       <Time>2011-03-30T18:15:34-05:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\Automatic_machine_gun.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\Automatic_machine_gun.xnb</Output>
       <Time>2011-03-30T18:15:38-05:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\deadscrm.xnb</Output>
+      <Output>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\deadscrm.xnb</Output>
       <Time>2011-03-30T18:15:36-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -142,10 +142,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYDContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYDContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bharat\Desktop\Gamebuilders Demo\KTYD\KTYD\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYDContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYDContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

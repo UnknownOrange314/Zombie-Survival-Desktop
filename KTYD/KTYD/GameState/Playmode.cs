@@ -123,11 +123,26 @@ namespace KTYD.GameState
             return this;
         }
 
-      
+
+        //Hack. REMOVE ASAP
+        public Boolean obstacleCollision(Entity e)
+        {
+            List<KTYD.Controller.Model.Obstacle> obstacles = gameMap.getObstacles();
+            foreach (KTYD.Controller.Model.Obstacle o in obstacles)
+            {
+                if (o.isCollide(e))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+
+        }
 
         protected void keyboardControllerListener()
         {
-           List<Entity> players = gamePlayers.getPlayers();
+           List<KTYD.Model.Character> players = gamePlayers.getPlayers();
             if (pauseGame == false)
             {
 
@@ -167,7 +182,8 @@ namespace KTYD.GameState
                     if (input.IsKeyDown(r))
                     {
 
-                        Entity p = players[x];
+                        KTYD.Model.Character p = players[x];
+                        
                         p.moveRotateRight(1f);
                     }
                 }
@@ -179,9 +195,12 @@ namespace KTYD.GameState
                     if (input.IsKeyDown(r))
                     {
 
-                        Entity p = players[x];
-                        p.moveForward(1f);
-                    }
+                        KTYD.Model.Character p = players[x];
+                        if (obstacleCollision(p)==false)
+                        {
+                            p.moveForward(1f);
+                        }
+                        }
                 }
 
 
@@ -192,7 +211,7 @@ namespace KTYD.GameState
                     if (input.IsKeyDown(r))
                     {
 
-                        Entity p = players[x];
+                        KTYD.Model.Character p = players[x];
                         p.moveBackward(1f);
                     }
                 }
@@ -203,7 +222,7 @@ namespace KTYD.GameState
                     if (input.IsKeyDown(r))
                     {
 
-                        Entity p = players[x];
+                        KTYD.Model.Character p= players[x];
                         p.moveRotateLeft(1f);
                     }
                 }

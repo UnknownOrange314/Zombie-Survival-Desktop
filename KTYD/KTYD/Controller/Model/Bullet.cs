@@ -21,7 +21,7 @@ namespace KTYD.Model
     /// 
     /// 
     /// </summary>
-    public class Bullet : Entity
+    public class Bullet : KTYD.Model.Character
     {
 
         protected Microsoft.Xna.Framework.Vector2 spawnLoc;
