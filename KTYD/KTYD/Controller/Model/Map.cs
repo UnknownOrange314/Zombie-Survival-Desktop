@@ -68,6 +68,13 @@ namespace KTYD.Model
             AIDirector = new DiffScaler();
             width = GameConfig.LEVEL_HEIGHT;
             height = GameConfig.LEVEL_WIDTH;
+            List<KTYD.Controller.Model.Obstacle> e = AIDirector.getObstacles();
+            foreach (KTYD.Controller.Model.Obstacle f in e)
+            {
+               //ystem.Console.WriteLine("hi");
+                loadEntity((Entity)f);
+
+            }
         }
 
          public List<KTYD.Controller.Model.Obstacle> getObstacles()
@@ -306,7 +313,15 @@ namespace KTYD.Model
             // for each type of entity
             switch (e.Type)
             {
-
+                case EntityType.OBSTACLE:
+                    foreach (Entity f in this.containers.getNearbycontainers(e))
+                    {
+                        if (e.isCollide(f))
+                        {
+                            f.restorePrevLocation();
+                        }
+                    }
+                    break;
                 case EntityType.PLAYER: //I think there should be a Character subclass, having the players stored as a list of entities is confusing
                     //Controller.Players eP=((Controller.Players)e);
 
@@ -314,10 +329,12 @@ namespace KTYD.Model
                     
 
 
-                    foreach (Entity u in this.containers.getNearbycontainers(e))
+                    foreach (Entity u in this.containers.getNearbycontainers(e))//This code may need refactoring, there is collision detection code seperate from this.
                     {
                         if (e != u)
                         {
+                           //ystem.Console.WriteLine(e.Type);
+                          
                             if (e.isCollide(u))
                             {
                                 if (u.Type == EntityType.BULLET)

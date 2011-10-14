@@ -103,7 +103,7 @@ namespace KTYD.Model
 
             if (edgeCollisions(speed))
             {
-
+              
                 restorePrevLocation();
             }
             else

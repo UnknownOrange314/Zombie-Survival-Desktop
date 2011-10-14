@@ -13,7 +13,8 @@ namespace KTYD
         BULLET,
         ENEMY,
         GENERIC,
-        ITEM
+        ITEM,
+        OBSTACLE
     }
 
     public enum EntityState
@@ -480,48 +481,6 @@ namespace KTYD
      
 
         }
-
-        /*
-        /// <summary>
-        /// Can an entity fire a bullet??
-        /// </summary>
-        /// <param name="loc">Location of entity</param>
-        public void spawnBullet(Vector2 spawnLoc)
-        {
-            Vector2 frontLoc;
-            frontLoc.X = curCenter.X + 10f * (float)Math.Cos(Rotate);
-            frontLoc.Y = curCenter.Y + 10f * (float)Math.Cos(Rotate);
-            if (canFire(frontLoc) == false)
-            {
-                return;
-
-            }
-            else
-            {
-
-            }
-
-        }
-        
-        /// <summary>
-        /// Can an entity fire a bullet??
-        /// </summary>
-        public Boolean canFire(Vector2 frontLoc)
-        {
-            
-            if (frontLoc.X < 0 || frontLoc.X < 800)
-            {
-                return false;
-            }
-            if (frontLoc.Y < 0 || frontLoc.Y < 800)
-            {
-                return false;
-
-            }
-            return true;
-
-        }
-         */
 
 
 

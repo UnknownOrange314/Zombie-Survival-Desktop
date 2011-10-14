@@ -8,15 +8,18 @@ using Microsoft.Xna.Framework.Content;
 namespace KTYD
 {
     /// <summary>
-    /// This class will act as a director to spawn enemies based on how much a player accomplishes.
+    /// This class will act as a director to create levels
     /// </summary>
+   
     public class DiffScaler
     {
-        int myScore;
+        private int myScore;
 
         int maxEnemies;
         Random r;
 
+
+        List<KTYD.Controller.Model.Obstacle> myObstacles;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -25,6 +28,19 @@ namespace KTYD
             maxEnemies = GameConfig.MAX_ENEMIES;
             myScore = 4;
             r = new Random();
+            createObstacles();
+
+        }
+
+        public void createObstacles()
+        {
+            myObstacles=new List<KTYD.Controller.Model.Obstacle>();
+            myObstacles.Add(new KTYD.Controller.Model.Obstacle(1,1,400,400));
+        }
+
+        public List<KTYD.Controller.Model.Obstacle> getObstacles()
+        {
+            return myObstacles;
 
         }
         /// <summary>
