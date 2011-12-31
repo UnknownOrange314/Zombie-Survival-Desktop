@@ -65,6 +65,22 @@ namespace KTYD
 
         }
 
+        public List<Entity> allEntities()
+        {
+            List<Entity> allEntities=new List<Entity>();
+            for (int x = 0; x < xGrids; x++)
+            {
+                for (int y = 0; y < yGrids; y++)
+                {
+                    foreach (Entity en in containers[x,y])
+                    {
+                        allEntities.Add(en);
+                    }
+
+                }
+            }
+            return allEntities;
+        }
 
         /// <summary>
         /// Returns the grid location of a vector

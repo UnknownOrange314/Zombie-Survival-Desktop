@@ -505,14 +505,12 @@ namespace KTYD.Model
             int entityCount = 0;
             cleanUp();
             this.containers.updateGridLocs();
-            this.allEntities.startIteration();
-            while(this.allEntities.hasNext())
-            {
-                List<Entity> localContainers=this.allEntities.returnNext();
+           List<Entity> entities=this.allEntities.allEntities();
 
 
 
-                foreach (Entity e in localContainers)
+
+           foreach (Entity e in entities)
                 {
                     entityCount++;
 
@@ -531,7 +529,7 @@ namespace KTYD.Model
                     updateActionForEntity(e);
 
                     e.update();
-                }
+           
             }//for each enitty
 
            

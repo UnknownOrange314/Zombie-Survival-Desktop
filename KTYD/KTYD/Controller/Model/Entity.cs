@@ -187,6 +187,16 @@ namespace KTYD
                 
             }
         }
+        public Vector2 backLoc
+        {
+            get
+            {
+                Vector2 back;
+                back.X = this.Location.X - (rangeRadius) * (float)Math.Cos(Rotate);
+                back.Y = this.Location.Y - (rangeRadius) * (float)Math.Sin(Rotate);
+                return back;
+            }
+        }
 
 
         /// <summary>
@@ -244,8 +254,15 @@ namespace KTYD
         /// </summary>
         public bool edgeCollisions(float varSpeed)
         {
-
-            Vector2 front = frontLoc;
+            Vector2 front;
+            if (varSpeed > 0)
+            {
+                 front = frontLoc;
+            }
+            else
+            {
+                front = backLoc;
+            }
             front.X = front.X + varSpeed * (float)Math.Cos(Rotate);
             front.Y = front.Y + varSpeed * (float)Math.Sin(Rotate);
 
@@ -367,6 +384,7 @@ namespace KTYD
         /// </summary>
         protected void calculateDestination()
         {
+
             curLoc.X += (float)(Math.Cos(Rotate) * (curVarSpeed +rangeRadius));
             curLoc.Y += (float)(Math.Sin(Rotate) * (curVarSpeed +rangeRadius));
 
