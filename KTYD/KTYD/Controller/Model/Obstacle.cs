@@ -31,7 +31,7 @@ namespace KTYD.Controller.Model
             height = h;
 
         }
-
+        //public void index(gArray
         public override bool isCollide(Entity e)
         {
 
@@ -42,7 +42,7 @@ namespace KTYD.Controller.Model
             if (eLoc.X>topX&&eLoc.X<topX+width)
             {
                 return true;
-                System.Console.WriteLine("hi");
+                
             }
             if (eLoc.Y > topY && eLoc.Y < topY + height)
             {

@@ -48,7 +48,7 @@ namespace KTYD
         protected Vector2 prevLoc;                            // Previous Location
 
         // Rotation
-        protected Vector2 curCenter;                           // Center location of this entity
+ 
         protected float curRotate;                             // Rotational value
         protected int rangeRadius;                              // Range for collision detection
 
@@ -179,8 +179,11 @@ namespace KTYD
         {
             get
             {
-               
-                return curLoc;
+
+                Vector2 front;
+                front.X = this.Location.X + (rangeRadius) * (float)Math.Cos(Rotate);
+                front.Y = this.Location.Y + (rangeRadius) * (float)Math.Sin(Rotate);
+                return front;
                 
             }
         }
@@ -241,25 +244,26 @@ namespace KTYD
         /// </summary>
         public bool edgeCollisions(float varSpeed)
         {
-            
-            Vector2 frontLoc;
-            frontLoc.X = this.Location.X + (rangeRadius +varSpeed)* (float)Math.Cos(Rotate);
-            frontLoc.Y = this.Location.Y + (rangeRadius+varSpeed) * (float)Math.Sin(Rotate);
 
-            if (frontLoc.X < 0)
+            Vector2 front = frontLoc;
+            front.X = front.X + varSpeed * (float)Math.Cos(Rotate);
+            front.Y = front.Y + varSpeed * (float)Math.Sin(Rotate);
+
+
+            if (front.X < 0)
             {
                
                 return true;
                 
             }
-            if (frontLoc.Y < 0)
+            if (front.Y < 0)
             {
                
                 return true;
                 
             }
 
-            if (frontLoc.Y > GameConfig.LEVEL_HEIGHT)
+            if (front.Y > GameConfig.LEVEL_HEIGHT)
             {
 
 
@@ -268,7 +272,7 @@ namespace KTYD
                 
 
             }
-            if (frontLoc.X > GameConfig.LEVEL_WIDTH)
+            if (front.X > GameConfig.LEVEL_WIDTH)
             {
          
                 return true;
@@ -363,8 +367,8 @@ namespace KTYD
         /// </summary>
         protected void calculateDestination()
         {
-            curLoc.X += (float)(Math.Cos(Rotate) * (curVarSpeed * 2.10+rangeRadius));
-            curLoc.Y += (float)(Math.Sin(Rotate) * (curVarSpeed * 2.10+rangeRadius));
+            curLoc.X += (float)(Math.Cos(Rotate) * (curVarSpeed +rangeRadius));
+            curLoc.Y += (float)(Math.Sin(Rotate) * (curVarSpeed +rangeRadius));
 
         }
 

@@ -17,16 +17,18 @@ using System.IO;
 
 namespace KTYD.GameState
 {
+
+
     public abstract class MenuState
     {
-        private String name;
+        private gameState name;
 
-        public MenuState(String n)
+        public MenuState(gameState n)
         {
             name = n;
         }
      
-        public String getName()
+        public gameState getName()
         {
             return name;
         }

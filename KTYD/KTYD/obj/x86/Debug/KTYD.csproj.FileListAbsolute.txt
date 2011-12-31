@@ -183,3 +183,4 @@ C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\obj\x86\Debug\ResolveAssembly
 C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\obj\x86\Debug\KTYD.exe
 C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\obj\x86\Debug\KTYD.pdb
+C:\Users\Bharat\Desktop\GamebuildersDemo\KTYD\KTYD\bin\x86\Debug\KTYD.exe.config

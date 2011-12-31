@@ -72,7 +72,8 @@ namespace KTYD.Model
             foreach (KTYD.Controller.Model.Obstacle f in e)
             {
                //ystem.Console.WriteLine("hi");
-                loadEntity((Entity)f);
+               // f.index(containers);
+                //loadEntity((Entity)f);
 
             }
         }

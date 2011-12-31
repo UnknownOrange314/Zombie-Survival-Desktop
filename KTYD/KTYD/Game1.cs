@@ -134,7 +134,7 @@ namespace KTYD
             gamePlayers = new Controller.Players();
 
             gameMap = new Model.Map(gamePlayers);
-            gameMap.setDimension(1920, 1600);
+            gameMap.setDimension(GameConfig.LEVEL_WIDTH,GameConfig.LEVEL_HEIGHT);
 
 
             /* Load all players into map and player controller */
@@ -163,10 +163,11 @@ namespace KTYD
             // Load the map to the View
             gameView.loadMap(gameMap);
 
-            if (mState.Equals("playmode"))
+
+            if(currentGameState ==gameState.PLAYMODE)
             {
 
-                 myMenuState = new GameState.Playmode("playmode", gameMap, false, input, pressShoot, storeTime, time, gamePlayers,c, gameView);
+                 myMenuState = new GameState.Playmode(currentGameState, gameMap, false, input, pressShoot, storeTime, time, gamePlayers,c, gameView);
              
             }
             base.Initialize();
@@ -186,7 +187,7 @@ namespace KTYD
 
             gameView.loadScreenBuffer(spriteBatch);
             gameView.loadUnitSpriteSheet(new SpriteSheet(Content.Load<Texture2D>("KTYD_units"), spriteBatch, 20, 16));
-            gameView.loadBackground(new SpriteSheet(Content.Load<Texture2D>("KTYD_Map"), spriteBatch, 1600, 1200));
+            gameView.loadBackground(new SpriteSheet(Content.Load<Texture2D>("KTYD_Map"), spriteBatch, GameConfig.LEVEL_WIDTH, GameConfig.LEVEL_HEIGHT));
             font = Content.Load<SpriteFont>("fontdebug");
             gameView.loadFont(font);
 
@@ -217,7 +218,7 @@ namespace KTYD
         protected override void Update(GameTime gameTime)
         {
 
-            if (myMenuState.getName().Equals("playmode"))
+            if (currentGameState==gameState.PLAYMODE)
             {
                 ((GameState.Playmode)myMenuState).updateValues("playmode", gameMap, false, input, pressShoot, storeTime, time, gamePlayers, c);
             }

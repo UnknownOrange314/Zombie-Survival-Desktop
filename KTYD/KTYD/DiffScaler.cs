@@ -26,7 +26,7 @@ namespace KTYD
         public DiffScaler()
         {
             maxEnemies = GameConfig.MAX_ENEMIES;
-            myScore = 4;
+            myScore = 0;
             r = new Random();
             createObstacles();
 
@@ -77,7 +77,7 @@ namespace KTYD
 
                
 
-                double x = (double)r.Next(10, GameConfig.SCREEN_RES_X - 50) + r.Next() % 100;
+                double x = (double)r.Next(10, 30) + r.Next() % 100;
 
                 double y = (double)r.Next(10, GameConfig.SCREEN_RES_Y - 50 + r.Next() % 100 /*-500*/);
 
@@ -87,7 +87,7 @@ namespace KTYD
                 {
                     double distance = Math.Sqrt((x - player[i].Center.X) * (x - player[i].Center.X) + (y - player[i].Center.Y) * (y - player[i].Center.Y));
 
-                    if (distance < 100)//Do not spawn enemies close to the player.
+                    if (distance < GameConfig.MIN_SPAWN_DISTANCE)//Do not spawn enemies close to the player.
                     {
                         close = true;
                         //return;

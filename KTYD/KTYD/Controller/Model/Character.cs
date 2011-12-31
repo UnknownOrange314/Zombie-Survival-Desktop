@@ -91,10 +91,7 @@ namespace KTYD.Model
         private void move(float speed)
         {
 
-            //Testing hack to see if obstacles work
-
-
-            //End testing hack
+          
             curVarSpeed = speed;
             savePrevLocation();
             calculateDestination();  //This calculates the destination of the part of the entity corresponding to the direction it is moving in

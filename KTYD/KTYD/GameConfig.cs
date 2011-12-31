@@ -77,6 +77,10 @@ namespace KTYD
         public static int MAX_ENEMIES = 1000;
         public static int DIFF_SCALE_FACTOR = 1;  //Lower number=harder game
         public static int MAX_ENEMY_SPAWN = 1000;    //Controls how fast the enemies can spawn
+        public static int MIN_SPAWN_DISTANCE = 100; //The minimum distance away from a player that enemies can spawn.
+
+        public static float PLAYER_SPEED=3f;
+        public static float PLAYER_TURN_SPEED = 1f;
 
     }
 }

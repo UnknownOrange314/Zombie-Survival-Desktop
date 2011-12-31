@@ -23,12 +23,12 @@ namespace KTYD.GameState
         KTYD.Model.Map gameMap;
         Controller.Players gamePlayers;
         Boolean pauseGame = false;
-        public GameTime gameTime;
+     
         KeyboardState input;
         bool[] pressShoot;
         Dictionary<PlayerIndex, int> c;
         View.View gameView;
-        public Playmode(String s, KTYD.Model.Map g, Boolean p, KeyboardState i, bool[] ps, float st, float[] t, Controller.Players gPlayers, Dictionary<PlayerIndex, int> test, View.View gView)
+        public Playmode(gameState s, KTYD.Model.Map g, Boolean p, KeyboardState i, bool[] ps, float st, float[] t, Controller.Players gPlayers, Dictionary<PlayerIndex, int> test, View.View gView)
             : base(s)
         {
             c = test;
@@ -59,7 +59,7 @@ namespace KTYD.GameState
                 gameView.Draw();
                 gameView.setScore(gameMap.getScore());
            
-                gameView.DrawString("hi", new Vector2(100, 100));
+              
         }
         public override MenuState update(GameTime gameTime)
         {
@@ -88,19 +88,7 @@ namespace KTYD.GameState
                     keyboardControllerListener();
                 }
 
-                if (gamePlayers.getPlayerAt(1) != null)
-                {
-                    //(controllerInput[1], PlayerIndex.Two);
-                }
-
-                if (gamePlayers.getPlayerAt(2) != null)
-                {
-                    //xBoxControllerListener(controllerInput[2], PlayerIndex.Three);
-                }
-                if (gamePlayers.getPlayerAt(3) != null)
-                {
-                    //xBoxControllerListener(controllerInput[3], PlayerIndex.Four);
-                }
+      
 
 
                 // Update all game logic
@@ -146,37 +134,10 @@ namespace KTYD.GameState
             if (pauseGame == false)
             {
 
-                /*
-                if (input.IsKeyDown(ControlConfig.P1_FORWARD))
-                {
-                  
-                    Vector2 center = gamePlayers.getPlayerOne().Center;
-
-                    gamePlayers.getPlayerOne().moveForward(1f);
-
-                }
-
-                if (input.IsKeyDown(ControlConfig.P1_BACKWARD))
-                {
-                    gamePlayers.getPlayerOne().moveBackward(1f);
-
-                }
-
-                if (input.IsKeyDown(ControlConfig.P1_LEFT))
-                {
-                    gamePlayers.getPlayerOne().moveRotateLeft(1f);
-
-                }
-
-                if (input.IsKeyDown(ControlConfig.P1_RIGHT))
-                {
-                    gamePlayers.getPlayerOne().moveRotateRight(1f);
-
-                }
-                */
+               
 
                 Dictionary<int, Microsoft.Xna.Framework.Input.Keys> rightMapping = gamePlayers.getRightMapping();
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < players.Count; x++)
                 {
                     Microsoft.Xna.Framework.Input.Keys r = rightMapping[x];
                     if (input.IsKeyDown(r))
@@ -184,12 +145,13 @@ namespace KTYD.GameState
 
                         KTYD.Model.Character p = players[x];
                         
-                        p.moveRotateRight(1f);
+                        
+                        p.moveRotateRight(GameConfig.PLAYER_TURN_SPEED);
                     }
                 }
 
                 Dictionary<int, Microsoft.Xna.Framework.Input.Keys> forwardMapping = gamePlayers.getForwardMapping();
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < players.Count; x++)
                 {
                     Microsoft.Xna.Framework.Input.Keys r = forwardMapping[x];
                     if (input.IsKeyDown(r))
@@ -198,39 +160,39 @@ namespace KTYD.GameState
                         KTYD.Model.Character p = players[x];
                         if (obstacleCollision(p)==false)
                         {
-                            p.moveForward(1f);
+                            p.moveForward(GameConfig.PLAYER_SPEED);
                         }
                         }
                 }
 
 
                 Dictionary<int, Microsoft.Xna.Framework.Input.Keys> backwardMapping = gamePlayers.getBackwardMapping();
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < players.Count; x++)
                 {
                     Microsoft.Xna.Framework.Input.Keys r = backwardMapping[x];
                     if (input.IsKeyDown(r))
                     {
 
                         KTYD.Model.Character p = players[x];
-                        p.moveBackward(1f);
+                        p.moveBackward(GameConfig.PLAYER_SPEED);
                     }
                 }
                 Dictionary<int, Microsoft.Xna.Framework.Input.Keys> leftMapping = gamePlayers.getLeftMapping();
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < players.Count; x++)
                 {
                     Microsoft.Xna.Framework.Input.Keys r = leftMapping[x];
                     if (input.IsKeyDown(r))
                     {
 
                         KTYD.Model.Character p= players[x];
-                        p.moveRotateLeft(1f);
+                        p.moveRotateLeft(GameConfig.PLAYER_TURN_SPEED);
                     }
                 }
 
                 Dictionary<int, Microsoft.Xna.Framework.Input.Keys> shootMapping = gamePlayers.getShootMapping();
 
                 //Allows players to shoot
-                for (int x = 0; x < 2; x++)
+                for (int x = 0; x < players.Count; x++)
                 {
                     Microsoft.Xna.Framework.Input.Keys r = shootMapping[x];
                     if (input.IsKeyDown(r))

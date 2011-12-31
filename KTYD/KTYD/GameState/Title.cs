@@ -18,7 +18,7 @@ namespace KTYD.GameState
     class Title : MenuState
     {
 
-        public Title(String s)
+        public Title(gameState s)
             : base(s)
         {
 
